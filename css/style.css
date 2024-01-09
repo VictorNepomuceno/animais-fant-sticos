@@ -14,8 +14,6 @@ html.textomaior {
 
 body {
   background: #faf6ed;
-  display: grid;
-  grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
 
 ul {
@@ -43,6 +41,11 @@ img {
   transform: translate3d(0, 0, 0);
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
+}
+
 .menu {
   grid-column: 3/5;
   background-color: #fb5;
@@ -64,6 +67,56 @@ img {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+[data-dropdown] {
+  position: relative;
+}
+[data-dropdown]:hover .dropDownMenu,
+[data-dropdown].ativo .dropDownMenu {
+  display: flex;
+  animation: dropDownAnima 0.2s forwards;
+}
+
+@keyframes dropDownAnima {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0px, 0);
+  }
+}
+
+[data-dropdown] .dropDownMenu {
+  display: none;
+}
+
+.dropDownMenu {
+  position: absolute;
+  top: 38px;
+  background-color: #e54;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #333;
+  z-index: 999;
+}
+
+.dropDownMenu::before {
+  position: absolute;
+  top: -10px;
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #e54;
+}
+
+.dropDownMenu a:hover {
+  color: #fff;
 }
 
 .grid-section {
@@ -258,6 +311,95 @@ img {
 
 .footer p {
   padding: 10px;
+}
+
+.janelaModal {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 99999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.janelaModal.ativo {
+  display: flex;
+}
+
+.fechar {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e54;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.modal {
+  position: relative;
+  background-color: #fb5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  padding: 40px 100px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  border: 6px solid #e54;
+  animation: modalAnimation 0.3s forwards;
+}
+
+@keyframes modalAnimation {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0px, 0px);
+  }
+}
+
+.modal button[type="submit"] {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  width: 100px;
+  background-color: #e54;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  padding: 0.7rem 0rem;
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+}
+
+.modal input {
+  width: 220px;
+  padding: 0.7rem 0.5rem;
+  box-sizing: border-box;
+}
+
+.modal label {
+  display: block;
+  margin: 1rem 0px 0.5rem 0px;
+  color: #000;
 }
 
 @media (max-width: 700px) {

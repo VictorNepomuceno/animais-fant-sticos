@@ -57,65 +57,6 @@
 
 // Substitua o conteúdo html de .faq pelo de .animais
 
-const active = "ativo";
-
-function initTab() {
-  const animaisLista = document.querySelectorAll(".animais-lista li");
-  const animaisContent = document.querySelectorAll(
-    ".animais-descricao section"
-  );
-  animaisContent[0].classList.add(active);
-
-  function activeTab(index) {
-    animaisContent.forEach((section) => {
-      section.classList.remove(active);
-    });
-    animaisContent[index].classList.add(active);
-  }
-
-  animaisLista.forEach((li, index) => {
-    li.addEventListener("click", () => {
-      activeTab(index);
-    });
-  });
-}
-initTab();
-
-function initAccordion() {
-  const accordionList = document.querySelectorAll(".faq-lista dt");
-
-  accordionList[0].classList.add(active);
-  accordionList[0].nextElementSibling.classList.add(active);
-
-  function activeAccordion(event) {
-    event.currentTarget.classList.toggle(active);
-    event.currentTarget.nextElementSibling.classList.toggle(active);
-  }
-
-  accordionList.forEach((dt) => {
-    dt.addEventListener("click", activeAccordion);
-  });
-}
-initAccordion();
-
-const sections = document.querySelectorAll(".js-scroll");
-const halfWidowScreen = window.innerHeight * 0.6;
-
-function animationScroll() {
-  sections.forEach((section) => {
-    const sectionTop = section.getBoundingClientRect().top;
-    const isVisible = sectionTop - halfWidowScreen < 0;
-    if (isVisible) {
-      section.classList.add(active);
-    } else {
-      section.classList.remove(active);
-    }
-  });
-}
-animationScroll();
-
-window.addEventListener("scroll", animationScroll);
-
 // Transforme o objeto abaixo em uma Constructor Function
 // const pessoa = {
 //   nome: "Nome pessoa",
@@ -306,3 +247,17 @@ const totalCompras = compras.reduce((acc, item) => {
 }, 0);
 
 console.log(totalCompras);
+
+// Adicione um atributo data-anime="show-down" e
+// data-anime="show-right" a todos as section's
+// com descricão dos animais.
+
+// Utilizando estes atributos, adicione a classe
+// show-down ou show-right a sua respectiva section
+// assim que a mesma aparecer na tela (animacao tab)
+
+// No CSS faça com que show-down anime de cima para baixo
+// e show-right continue com a mesma animação da esquerda
+// para a direita
+
+// Substitua todas as classes js- por data atributes.
