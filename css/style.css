@@ -445,3 +445,19 @@ img {
     text-align: center;
   }
 }
+
+.tooltip {
+  position: absolute;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 2px #fb5, 0 0 0 6px rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
+  color: #fff;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+  max-width: 170px;
+  font-size: 0.875rem;
+  border-radius: 2px;
+  top: 0;
+  left: 0;
+}

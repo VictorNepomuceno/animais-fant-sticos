@@ -179,7 +179,9 @@
         </div>
       </section>
       <section class="grid-section faq js-scroll" id="faq">
-        <h1 class="titulo">Faq</h1>
+        <h1 class="titulo" data-tooltip aria-label="Perguntas Frequentes">
+          Faq
+        </h1>
         <dl class="faq-lista">
           <dt>Qual a idade dos animais?</dt>
           <dd>
@@ -207,12 +209,12 @@
       </section>
       <section class="grid-section contato js-scroll" id="contato">
         <h2 class="titulo">Contato</h2>
-        <div class="mapa">
-          <img
-            src="./img/mapa.png"
-            alt="mapa"
-            title="endereço próximo ao estacionamento"
-          />
+        <div
+          class="mapa"
+          data-tooltip
+          aria-label="Endereço próximo ao estacionamento"
+        >
+          <img src="./img/mapa.png" alt="mapa" />
         </div>
         <ul class="dados">
           <li>
@@ -238,7 +240,7 @@
         </ul>
       </section>
       <footer class="footer">
-        <p>Feito por Victor Nepomuceno.</p>
+        <p data-tooltip aria-label="Artur">Feito por Victor Nepomuceno.</p>
       </footer>
     </div>
 
