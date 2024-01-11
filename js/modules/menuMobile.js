@@ -15,5 +15,19 @@ export default function initMobileMenu() {
     });
   }
 
-  toggleMenu.addEventListener("click", openMenu);
+  events.forEach((item) => {
+    toggleMenu.addEventListener(item, openMenu);
+  });
 }
+
+// function openMenu() {
+//   menu.classList.toggle("ativo");
+//   toggleMenu.classList.toggle("ativo");
+
+//   document.onclick = function (e) {
+//     if (!menu.contains(e.target) && !toggleMenu.contains(e.target)) {
+//       menu.classList.remove("ativo");
+//       toggleMenu.classList.remove("ativo");
+//     }
+//   };
+// }

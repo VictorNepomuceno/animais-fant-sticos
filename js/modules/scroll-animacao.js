@@ -9,7 +9,7 @@ export default function initScroll() {
       const isVisible = sectionTop - halfWidowScreen < 0;
       if (isVisible) {
         section.classList.add(active);
-      } else {
+      } else if (section.classList.contains(active)) {
         section.classList.remove(active);
       }
     });
