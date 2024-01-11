@@ -100,7 +100,7 @@ img {
   display: flex;
   flex-direction: column;
   border: 2px solid #333;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .dropDownMenu::before {
@@ -401,9 +401,51 @@ img {
   margin: 1rem 0px 0.5rem 0px;
   color: #000;
 }
+.toggleMenu {
+  border: none;
+  background-color: #222;
+  color: #fff;
+  font-family: "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+  margin: 10px;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  /* gap: 5px; */
+  z-index: 300;
+  position: relative;
+}
+
+.toggleMenu::before {
+  margin-left: 10px;
+  content: "";
+  width: 16px;
+  height: 2px;
+  background: #fff;
+  display: inline-block;
+  box-shadow: 0 4px #fff, 0 -4px #fff;
+  transition: 0.3s;
+  z-index: 300;
+}
 
 @media (max-width: 700px) {
-  body {
+  .toggleMenu {
+    display: flex;
+    flex-direction: row-reverse;
+    transition: transform 0.3s ease;
+    z-index: 300;
+  }
+
+  .toggleMenu.ativo::before {
+    box-shadow: 0px 0px transparent, 0px 0px transparent;
+    transform: rotate(180deg);
+    z-index: 300;
+  }
+
+  .grid-container {
     grid-template-columns: 1fr;
   }
 
@@ -415,6 +457,26 @@ img {
 
   .menu {
     margin-top: 0px;
+  }
+
+  .menu > ul {
+    width: 160px;
+    position: absolute;
+    z-index: 1;
+    background-color: #fb5;
+    top: 0;
+    display: none;
+    padding: 60px 0 20px 0;
+    animation: show 0.4s forwards;
+  }
+
+  .menu ul.ativo {
+    display: block;
+  }
+
+  .dropDownMenu {
+    background-color: #e54;
+    position: static;
   }
 
   .grid-section {
